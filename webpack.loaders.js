@@ -9,6 +9,11 @@ module.exports = [
     exclude: /(node_modules|bower_components|public\/)/,
     loader: "babel-loader"
   },
+  {
+  test: /\.scss$/,
+  exclude: /(node_modules|bower_components|public\/)/,
+  loader: "css-loader!sass-loader"
+},
   /*{
     test: /\.css$/,
     loaders: ['style-loader', 'css-loader?importLoaders=1'],
