@@ -9,13 +9,13 @@ install yarn at https://yarnpkg.com/lang/en/docs/install/
 install all the node modules
 
 ```
-npm yarn install
+yarn install
 ```
 
 to start the server for development
 
 ```
-npm start
+yarn start
 ```
 
-all these things will probably change in the near future for this site just setting up the basics for now
+all these things will probably change in the near future for this site just setting up the basics for now.
