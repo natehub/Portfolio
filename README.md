@@ -14,8 +14,19 @@ yarn install
 
 to start the server for development
 
+webpack dev server
 ```
 yarn start
+```
+
+webpack with watch
+```
+yarn watch
+```
+
+build static files
+```
+yarn build
 ```
 
 all these things will probably change in the near future for this site just setting up the basics for now.
