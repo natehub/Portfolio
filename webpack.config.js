@@ -4,6 +4,15 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 const loaders = require('./webpack.loaders');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+  loaders.push( { // sass / scss loader for webpack
+    test: /\.(sass|scss)$/,
+    loader: ExtractTextPlugin.extract({fallback: 'style-loader',
+    use:['css-loader', 'sass-loader']})
+  });
+ 
+
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: './src/index.html',
@@ -11,37 +20,36 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     inject: 'body'
 })
 
+var css_sass_text = new ExtractTextPlugin({ // define where to save the file
+    filename: '[name].bundle.css',
+    allChunks: true
+  })
 
-const sync = new BrowserSyncPlugin(
-    // BrowserSync options 
+
+const sync = new BrowserSyncPlugin( 
     {
-      // browse to http://localhost:3000/ during development 
       host: 'localhost',
       port: 3000,
-      // proxy the Webpack Dev Server endpoint 
-      // (which should be serving on http://localhost:3100/) 
-      // through BrowserSync 
       proxy: 'http://localhost:8080/'
     },
-    // plugin options 
     {
-      // prevent BrowserSync from reloading the page 
-      // and let Webpack Dev Server take care of this 
       reload: false
     }
   )
 
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ['./src/index.js', './src/components/bundle.scss' ],
     output: {
         path: path.resolve('dist'),
         filename: 'index_bundle.js'
     },
     module: {
-        loaders
+        rules: loaders
     },
     plugins: [HtmlWebpackPluginConfig, new DashboardPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.HotModuleReplacementPlugin(),sync]
+        new webpack.HotModuleReplacementPlugin(),sync,css_sass_text]
 }
+
+
