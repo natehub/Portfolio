@@ -1,8 +1,6 @@
 @import './common/base/variables.scss';
 @import './common/base/global.scss';
 @import './header/header.scss';
-
-
-.bb{
-    color: red; 
-}
+@import './pages/main.scss';
+@import './pages/projects.scss';
+@import './pages/travel.scss';

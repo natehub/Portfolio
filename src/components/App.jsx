@@ -1,29 +1,36 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Link
 } from 'react-router-dom'
 
+import main from './pages/main.jsx';
+import projects from './pages/projects.jsx';
+import travel from './pages/travel.jsx';
+
+
 const BasicExample = () => (
-  <Router>
+  
+  <BrowserRouter>
+    
     <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/topics">Topics</Link></li>
-      </ul>
-
-      <hr/>
-
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-      <Route path="/topics" component={Topics}/>
+      <div className="grad">
+        
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">Projects</Link></li>
+          <li><Link to="/topics">Travel</Link></li>
+        
+      </div>
+      <Route exact path="/" component={main}/>
+      <Route path="/about" component={projects}/>
+      <Route path="/topics" component={travel}/>
     </div>
-  </Router>
+  </BrowserRouter>
+  
 )
 
-const Home = () => (
+/*const Home = () => (
   <div>
     <h2>Home</h2>
   </div>
@@ -67,6 +74,6 @@ const Topic = ({ match }) => (
   <div>
     <h3>{match.params.topicId}</h3>
   </div>
-)
+)*/
 
 export default BasicExample
