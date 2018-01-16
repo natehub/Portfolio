@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom'
 
 import main from './pages/main.jsx';
-import projects from './pages/projects.jsx';
-import travel from './pages/travel.jsx';
+import portfolio from './pages/portfolio.jsx';
+import about from './pages/about.jsx';
 
 
 const BasicExample = () => (
@@ -15,16 +15,19 @@ const BasicExample = () => (
   <BrowserRouter>
     
     <div>
-      <div className="grad">
-        
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">Projects</Link></li>
-          <li><Link to="/topics">Travel</Link></li>
-        
-      </div>
+    <div className="nav menu-top pure-menu pure-menu-horizontal shadow">
+    <ul className="nav_marg pure-menu-list">
+        <li className="pure-menu-item"><Link to="/" className="menu-btn pure-menu-link nav_btn_color">CL</Link></li>
+    </ul>
+    <ul className="nav_marg pure-menu-list main_right">
+        <li className="pure-menu-item"><Link to="/portfolio" className="menu-btn pure-menu-link nav_btn_color">Portfolio</Link></li>
+        <li className="pure-menu-item"><Link to="/about" className="menu-btn pure-menu-link nav_btn_color">About</Link></li>
+    </ul>
+</div>
+  
       <Route exact path="/" component={main}/>
-      <Route path="/about" component={projects}/>
-      <Route path="/topics" component={travel}/>
+      <Route path="/portfolio" component={portfolio}/>
+      <Route path="/about" component={about}/>
     </div>
   </BrowserRouter>
   

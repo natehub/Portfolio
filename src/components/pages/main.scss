@@ -1,4 +1,31 @@
-.background-color{
-    background-color: gray;
-    margin: 0;
+.square{
+    background-color: $white;
 }
+
+
+.main-text_box-1{
+    text-align: center;
+    vertical-align: middle;
+    margin: 100px;
+}
+
+.main-text_box-2{
+    text-align: center;
+    vertical-align: middle;
+    margin: 100px;
+    font-style: italic;
+}
+
+.main_pad{
+    text-align: center;
+}
+
+.main-img{
+    width: 80%; /*can be in percentage also.*/
+    height: auto;
+    margin: 0 auto;
+   padding-top: 100px;
+   
+
+}
+
